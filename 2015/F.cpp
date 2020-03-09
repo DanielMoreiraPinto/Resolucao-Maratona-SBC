@@ -1,8 +1,13 @@
+//resolvido por Daniel Moreira Pinto 
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
+//optou-se por usar unsigned long long para segurança
+
+//função que calcula fatorial para a lógica do programa (lista crescente de fatoriais) 
 unsigned long fat(unsigned long long a)
 {
     unsigned long long t=1;
@@ -23,6 +28,8 @@ int main()
 
     cin >> n;
 
+    //faz uma lista crescente de fatoriais até o número máximo permitido na questão
+    //aqui ff está sendo usado comp auxiliar, e por isso é resetado logo após
     while (r < 100000) {
         r = fat(ff);
         fats.push_back(r);
@@ -31,6 +38,8 @@ int main()
 
     ff = 0;
 
+    //até que se chegue no número desejado, encontra-se o fatorial na lista que, após a soma, chegue mais perto 
+    //do número e incrementa-se o valor da saída.
     while(ff != n) {
         while(ff + fats[i] <= n) {
             i++;
