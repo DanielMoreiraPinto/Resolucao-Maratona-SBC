@@ -1,10 +1,13 @@
- //código em C para adaptar
- //origem do código (verificado) http://muitomaiscodigoss.blogspot.com/2018/08/uri-problema-2246-ladrilhos-solucao.html
+ //código em C para adaptar TINHA GOTO
+ //origem do código _verificado_ http://muitomaiscodigoss.blogspot.com/2018/08/uri-problema-2246-ladrilhos-solucao.html
  
- #include <stdio.h>
+ #include <iostream>
 
-#define TAMANHO_MAXIMO 200
-#define VISITADO -1
+using namespace std;
+
+//constantes úteis
+const int TAMANHO_MAXIMO = 200;
+const int VISITADO = -1;
 
 int buscarTamanhoDaSequencia(int parede[][TAMANHO_MAXIMO], int i, int j, int m, int n, int cor);
 
@@ -15,11 +18,11 @@ int main (void) {
         tamanhoDaSequencia,
         tamanhoDaMenorSequencia = -1;
 
-    scanf("%d %d", &m, &n);
+    cin >> m >> n;
 
     for (i = 0; i < m; i++) {
         for (j = 0; j < n; j++) {
-            scanf("%d", &parede[i][j]);
+            cin >> parede[i][j];
         }
     }
 
@@ -32,15 +35,14 @@ int main (void) {
                     tamanhoDaMenorSequencia = tamanhoDaSequencia;
 
                     if (tamanhoDaMenorSequencia == 1) {
-                        goto PRINT;
+                        break;
                     }
                 }
             }
         }
     }
 
-PRINT:
-    printf("%d\n", tamanhoDaMenorSequencia);
+    cout << tamanhoDaMenorSequencia;
 
     return 0;
 }
